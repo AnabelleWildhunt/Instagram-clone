@@ -1,0 +1,138 @@
+/* -------------------- TYPOGRAPHY -------------------- */
+:root{
+    /* COLORS */
+    --background: #F5F5F5;
+    --grey-base: #C6C6C6;
+    --white: #FFFFFF;
+    --black: #000000;
+
+    /* BOX PROPERTIES */
+    --main-width: 375px;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 0.8rem;
+}
+
+p{
+    margin: 0;
+}
+
+.small{
+    font-size: 0.75rem;
+}
+
+/* -------------------- COMPONENTS -------------------- */
+
+/* for elements with plain flex display variable */
+.flex{
+    display: flex;
+}
+
+/* for elements along the main y axis of page */
+.main-width{
+    width: var(--main-width);
+    margin: 0 auto;
+}
+
+.profile-img{
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+}
+
+/* -------------------- LAYOUT -------------------- */
+
+/* --------- NAVBAR --------- */
+
+.navbar{
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    border-bottom: 1px solid #a1a1aa;
+}
+
+.oldagram-logo{
+    width: 127px;
+    padding-bottom: 10px;
+}
+
+.your-avatar{
+    margin-right: 14px;
+    background-image: url(images/user-avatar.png);
+    background-size: cover;
+}
+
+.icon{
+    height: 100%;
+    width: 100%;
+    transition: 0.5s;
+}
+
+.icon:hover, .icon:focus{
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.icon:active{
+    height: 10%;
+    width: 10%;
+}
+
+.stats-count{
+    font-weight: 700;
+}
+
+.username{
+    font-weight: 700;
+}
+
+/* --------- MAIN THREAD --------- */
+
+/* .main-thread{} */
+
+/* --- POST --- */
+
+.post{
+    margin-bottom: 25px;
+    background-color: var(--white);
+}
+
+.user-info{
+    padding: 11px;
+    gap: 11px;
+}
+
+.name{
+    font-weight: 700;
+}
+
+.post-image{
+    height: 375px;
+}
+
+.photo{
+    width: 100%;
+}
+
+.post-content{
+    padding: 11px 10px 19px;
+}
+
+.post-stats{
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.icon-container{
+    width: 22px;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+}
