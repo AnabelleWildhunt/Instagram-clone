@@ -74,3 +74,5 @@ function render(){
                 </div>`
     }
 }
+
+render()
