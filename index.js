@@ -35,8 +35,9 @@ const mainThread = document.querySelector(".main-thread")
 
 
 function render(){
-    for (i = 0; i < posts.length; i++){
-        mainThread.innerHTML += `<div class="post">
+    let postsArray = ""
+    for (let i = 0; i < posts.length; i++){
+        postsArray += `<div class="post">
 
                     <div class="user-info flex">
                         <img class="profile-img" src="${posts[i].avatar}" alt="">
@@ -73,6 +74,7 @@ function render(){
 
                 </div>`
     }
+    mainThread.innerHTML = postsArray
 }
 
 render()
