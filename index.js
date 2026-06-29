@@ -1,80 +1,68 @@
-let posts = [
-    {
-        name: "Vincent van Gogh",
-        username: "vincey1853",
-        location: "Zundert, Netherlands",
-        avatar: "images/avatar-vangogh.jpg",
-        post: "images/post-vangogh.jpg",
-        comment: "just took a few mushrooms lol",
-        likes: 21,
-        liked: false
-    },
-    {
-        name: "Gustave Courbet",
-        username: "gus1819",
-        location: "Ornans, France",
-        avatar: "images/avatar-courbet.jpg",
-        post: "images/post-courbet.jpg",
-        comment: "i'm feelin a bit stressed tbh",
-        likes: 4,
-        liked: false
-    },
-        {
-        name: "Joseph Ducreux",
-        username: "jd1735",
-        location: "Paris, France",
-        avatar: "images/avatar-ducreux.jpg",
-        post: "images/post-ducreux.jpg",
-        comment: "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
-        likes: 152,
-        liked: false
+// ********************* DATA *********************
+import { posts } from "./data.js"
+
+
+// ********************* EVENT LISTENERS *********************
+
+// ---------- For Listening To Clicks On The Page ----------
+document.addEventListener("click", function(e){
+    if (e.target.dataset.heart) {
+        console.log(e.target.dataset.heart)
+    } else if (e.target.dataset.comment) {
+        console.log(e.target.dataset.comment)
+    } else if (e.target.dataset.dm){
+        console.log(e.target.dataset.dm)
     }
-]
-
-const mainThread = document.querySelector(".main-thread")
+})
 
 
+// ********************* FUNCTIONS *********************
+
+// ---------- For Rendering The Content Of The Main Thread ----------
 function render(){
     let postsArray = ""
-    for (let i = 0; i < posts.length; i++){
-        postsArray += `<div class="post">
+    for (let post of posts){
+        postsArray += `
+                <div class="post">
 
                     <div class="user-info flex">
-                        <img class="profile-img" src="${posts[i].avatar}" alt="">
+                        <img class="profile-img" src="${post.avatar}" alt="">
                         <div>
-                            <p class="name">${posts[i].name}</p>
-                            <p class="location small">${posts[i].location}</p>
+                            <p class="name">${post.name}</p>
+                            <p class="location small">${post.location}</p>
                         </div>
                     </div>
 
                     <div class="post-image">
-                        <img class="photo" src="${posts[i].post}" alt="photo sent by [...].">
+                        <img class="photo" src="${post.post}" alt="photo sent by [...].">
                     </div>
 
                     <div class="post-content">
                     
                         <div class="post-stats flex">
                             <div class="icon-container flex">
-                            <img class="icon heart-icon" id="heart${i}" src="images/icon-heart.png" alt="heart icon.">
+                            <img class="icon heart-icon" data-heart="${post.uuid}" src="images/icon-heart.png" alt="heart icon.">
                             </div>
-                            <p class="stats-count heart">${posts[i].likes}</p>
+                            <p class="stats-count heart">${post.likes}</p>
                             <div class="icon-container flex">
-                            <img class="icon" src="images/icon-comment.png" alt="comment icon.">
+                            <img class="icon" data-comment="${post.uuid}" src="images/icon-comment.png" alt="comment icon.">
                             </div>
                             <p class="stats-count comment"></p>
                             <div class="icon-container flex">
-                            <img class="icon" src="images/icon-dm.png" alt="share icon.">
+                            <img class="icon" data-dm="${post.uuid}" src="images/icon-dm.png" alt="share icon.">
                             </div>
                             <p class="stats-count dm"></p>
                         </div>
 
-                        <p><span class="username">${posts[i].username}</span> ${posts[i].comment}</p>
+                        <p><span class="username">${post.username}</span> ${post.comment}</p>
 
                     </div>
 
                 </div>`
     }
-    mainThread.innerHTML = postsArray
+    document.querySelector(".main-thread").innerHTML = postsArray
 }
 
+
+// ********************* ENGINE ACTION *********************
 render()
