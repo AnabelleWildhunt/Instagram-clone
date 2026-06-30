@@ -7,16 +7,32 @@ import { posts } from "./data.js"
 // ---------- For Listening To Clicks On The Page ----------
 document.addEventListener("click", function(e){
     if (e.target.dataset.heart) {
-        console.log(e.target.dataset.heart)
+        handleHeart(e.target.dataset.heart)
     } else if (e.target.dataset.comment) {
-        console.log(e.target.dataset.comment)
+        handleComment(e.target.dataset.comment)
     } else if (e.target.dataset.dm){
-        console.log(e.target.dataset.dm)
+        handleDM(e.target.dataset.dm)
     }
 })
 
 
 // ********************* FUNCTIONS *********************
+
+
+// ---------- For "Liking" a post ----------
+function handleHeart(){
+
+}
+
+// ---------- For Opening Post's Comment Section ----------
+function handleComment(){
+    
+}
+
+// ---------- For Sharing The Post Further ----------
+function handleDM(){
+    
+}
 
 // ---------- For Rendering The Content Of The Main Thread ----------
 function render(){
